@@ -91,8 +91,9 @@ def plot_ts(df, kpi_ts):
     return fig
 # df = read_data()
 uploaded_file = st.file_uploader("Choose a file")
-df_weekly = pd.read_csv(uploaded_file)
-df_weekly["yw"] = df_weekly["yw"].astype(str)
+if uploaded_file is not None:
+    df_weekly = pd.read_csv(uploaded_file)
+    df_weekly["yw"] = df_weekly["yw"].astype(str)
         
 continents = list(df_weekly.sort_values(by=['continent'])['continent'].unique())
 
