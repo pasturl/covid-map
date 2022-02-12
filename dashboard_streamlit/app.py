@@ -5,7 +5,7 @@ import streamlit as st
 from sklearn.preprocessing import MinMaxScaler
 
 st.set_page_config(layout="wide")
-mapbox_access_token = open("token").read()
+mapbox_access_token = st.secrets["TOKEN"]
 
 
 @st.cache
