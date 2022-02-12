@@ -9,13 +9,6 @@ mapbox_access_token = st.secrets["TOKEN"]
 
 
 @st.cache
-def read_data_weekly():
-    df = pd.read_csv("owid-covid-data-gps-weekly.csv")
-    df["yw"] = df["yw"].astype(str)
-    return df
-
-
-@st.cache
 def filter_data(df, continent):
     df_continent = df[df["continent"] == continent].reset_index(drop=True)
     return df_continent
@@ -97,7 +90,11 @@ def plot_ts(df, kpi_ts):
         height=500)
     return fig
 # df = read_data()
-df_weekly = read_data_weekly()
+uploaded_file = st.file_uploader(“Choose a file”)
+@st.cache
+df_weekly = pd.read_csv(uploaded_file)
+df_weekly["yw"] = df_weekly["yw"].astype(str)
+        
 continents = list(df_weekly.sort_values(by=['continent'])['continent'].unique())
 
 
