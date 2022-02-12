@@ -90,7 +90,7 @@ def plot_ts(df, kpi_ts):
         height=500)
     return fig
 # df = read_data()
-uploaded_file = st.file_uploader(“Choose a file”)
+uploaded_file = st.file_uploader("Choose a file")
 @st.cache
 df_weekly = pd.read_csv(uploaded_file)
 df_weekly["yw"] = df_weekly["yw"].astype(str)
