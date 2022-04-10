@@ -101,7 +101,7 @@ df_weekly["yw"] = df_weekly["yw"].astype(str)
 continents = list(df_weekly.sort_values(by=['continent'])['continent'].unique())
 
 st.header('Streamlit app to visualize covid data')
-st.subheader('Visualization of evolution of main pandemic parameters'
+st.subheader('Visualization of evolution of main pandemic KPIs'
              ' (deaths, new cases, hospitalizations, vaccinations, etc).')
 link = 'Code available in my [Github repository](https://github.com/pasturl/covid-map). Data from [Our World in Data](https://github.com/owid/covid-19-data)'
 st.markdown(link, unsafe_allow_html=True)
